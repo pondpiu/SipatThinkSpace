@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>B2S ThinkSpace</title>
+
+    <script src="scripts/rajax.js"></script>
+
+</head>
+<body>
+
+    <div id="app-content">
+        <h1 id="title"> test </h1>
+        <button id="test-button"> test button </button>
+    </div>
+
+    <script type="text/javascript">
+
+        var testButton = document.getElementById('test-button');
+
+        testButton.onclick = function () {
+            rAjax.get('/news', function (res) {
+                console.log(res);
+            });
+        }
+
+
+    </script>
+
+</body>
+</html>
