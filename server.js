@@ -1,11 +1,11 @@
-var app = require('express')();
-var http = require('http').Server(app);
-var path = require('path');
-var express = require('express');
-var mongodb = require('mongodb');
-var MongoClient = mongodb.MongoClient;
-var url = 'mongodb://localhost:27017/infosys';
-var bodyParser = require('body-parser');
+var app = require('express')()
+var http = require('http').Server(app)
+var path = require('path')
+var express = require('express')
+var mongodb = require('mongodb')
+var MongoClient = mongodb.MongoClient
+var url = 'mongodb://localhost:27017/infosys'
+var bodyParser = require('body-parser')
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({
 		extended : true
