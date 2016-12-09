@@ -94,7 +94,6 @@ app.post('/bookings', function (req, res) {
 	//Get news
 	//from collection news
 	app.get('/news', function (req, res) {
-		console.log('getting news');
 		MongoClient.connect(url, function (err, db) {
 			if (err) {
 				return res.send({
@@ -104,17 +103,16 @@ app.post('/bookings', function (req, res) {
 			} else {
 				var collection = db.collection('news');
 				collection.find({}).toArray(function(error, documents) {
-	    if (err) throw error;
-
-	    res.send(documents);
-	});
+	    			if (err) throw error;
+	    			res.send(documents);
+				});
 			}
 		});
 	});
 
 	//get Zone
 	//from collection zone
-app.get('/zone/:name', function (req, res) {
+app.get('/zone/:name?*', function (req, res) {
 	MongoClient.connect(url, function (err, db) {
 		if (err) {
 			return res.send({
@@ -123,31 +121,43 @@ app.get('/zone/:name', function (req, res) {
 			});
 		} else {
 			var collection = db.collection('zone');
-			collection.findOne({
-				'zoneName' : req.params.name
-			}, function (err, doc) {
-				if (err) {
-					return res.send({
-						'status' : 1,
-						'message' : err
-					});
-				} else if (doc != null) {
-					console.log('Found ' + req.params.name + '.');
-					return res.send({
-						'status' : 0,
-						'message' : 'zone found',
-						'user' : doc,
 
-					});
-				} else {
-					console.log('Can not find ' + req.params.name + '.');
-					return res.send({
-						'status' : 2,
-						'message' : 'zone not found'
-					});
-				}
-				db.close();
-			});
+            // if parameter name exist (given)
+			if (typeof req.params.name !== 'undefined') {
+                collection.findOne({
+                    'zoneName': req.params.name
+                }, function (err, doc) {
+                    if (err) {
+                        return res.send({
+                            'status': 1,
+                            'message': err
+                        });
+                    } else if (doc != null) {
+                        console.log('Found ' + req.params.name + '.');
+                        return res.send({
+                            'status': 0,
+                            'message': 'zone found',
+                            'user': doc,
+
+                        });
+                    } else {
+                        console.log('Can not find ' + req.params.name + '.');
+                        return res.send({
+                            'status': 2,
+                            'message': 'zone not found'
+                        });
+                    }
+                    db.close();
+                });
+            } else { // else we return all zones
+                console.log('returning all zones');
+                var collection = db.collection('zone');
+                collection.find({}).toArray(function(error, documents) {
+                    if (err) throw error;
+                    res.send(documents);
+                });
+
+            }
 		}
 	});
 });
