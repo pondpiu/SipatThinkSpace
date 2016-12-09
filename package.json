@@ -4,8 +4,11 @@
   "description": "my first socket.io app",
   "dependencies": {
     "body-parser": "^1.15.2",
+    "bootstrap": "^3.3.7",
+    "express": "^4.14.0",
     "mongodb": "^2.2.10",
     "socket.io": "^1.4.8",
-    "vue": "^2.1.4"
+    "vue": "^2.1.4",
+    "vue-resource": "^1.0.3"
   }
 }

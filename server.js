@@ -10,7 +10,10 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({
 		extended : true
 	}));
-app.use(express.static(__dirname + '/public')); 				// set the static files location /public/img will be /img for users
+
+app.use(express.static(__dirname + '/'));
+app.use('/build', express.static('public'));
+// app.use(express.static(__dirname + '/public')); 				// set the static files location /public/img will be /img for users
 
 app.get('/', function (req, res) {
 	res.sendFile(__dirname + '/index.html');
