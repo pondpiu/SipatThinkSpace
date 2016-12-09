@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>B2S ThinkSpace</title>
+
+        <script src="scripts/rajax.js"></script>
+
+    </head>
+    <body>
+
+        <div id="app-content">
+        <h1 id="title"> test </h1>
+        <button id="test-button"> test button </button>
+        </div>
+
+        <script type="text/javascript">
+
+        var testButton = document.getElementById('test-button');
+
+        var ajh = ajaxHandler();
+
+        testButton.onclick = function () {
+            ajh.getNews(function (res) {
+                console.log('News');
+                console.log(res[0].content);
+            });
+
+            ajh.addBookings(
+                {
+                    name: 'test',
+                    time: new Date().getTime(),
+                    duration: 1000000
+                }
+                ,function (res) {
+                    console.log('Bookings');
+                    console.log(res[0]);
+            });
+
+            ajh.getBookings(function (res) {
+                console.log('Bookings');
+                console.log(res);
+            });
+        };
+
+
+        </script>
+    </body>
+
+</html>
