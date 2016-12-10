@@ -1,11 +1,13 @@
-var app = require('express')()
-var http = require('http').Server(app)
-var path = require('path')
-var express = require('express')
-var mongodb = require('mongodb')
-var MongoClient = mongodb.MongoClient
-var url = 'mongodb://localhost:27017/infosys'
-var bodyParser = require('body-parser')
+var express = require('express');
+var app = express();
+var http = require('http').Server(app);
+var path = require('path');
+var mongodb = require('mongodb');
+var MongoClient = mongodb.MongoClient;
+var bodyParser = require('body-parser');
+
+var url = 'mongodb://localhost:27017/infosys';
+
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({
 		extended : true
@@ -18,8 +20,6 @@ app.use('/build', express.static('public'));
 app.get('/', function (req, res) {
 	res.sendFile(__dirname + '/index.html');
 });
-
-
 
 
 //post schedule
