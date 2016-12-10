@@ -173,9 +173,7 @@ app.get('/product/:name', function (req, res) {
 			});
 		} else {
 			var collection = db.collection('product');
-			collection.findOne({
-				'title' : req.params.name
-			}, function (err, doc) {
+            collection.find({'title' : new RegExp(req.params.name, 'i')}).toArray(function (err, doc) {
 				if (err) {
 					return res.send({
 						'status' : 1,
