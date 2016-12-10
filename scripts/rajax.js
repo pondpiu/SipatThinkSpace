@@ -21,7 +21,11 @@ var rAjax = function (req) {
     };
 
     var bustCache = '?' + new Date().getTime();
-    xhr.open(req.method, req.url + bustCache, req.async);
+
+
+
+    xhr.open(req.method, req.url + '/' + ((typeof req.query === 'undefined')? '' : req.query) + bustCache, req.async);
+
     if (typeof req.data !== 'undefined') {
         xhr.setRequestHeader('Content-Type', 'application/json; charset=UTF-8');
     }
@@ -40,7 +44,8 @@ var ajaxHandler = function () {
         rAjax({
             url: '/news',
             method: 'GET',
-            complete: complete
+            complete: complete,
+            error: error
         }).send();
     };
 
@@ -48,7 +53,8 @@ var ajaxHandler = function () {
         rAjax({
             url: '/bookings',
             method: 'GET',
-            complete: complete
+            complete: complete,
+            error: error
         }).send();
     };
 
@@ -57,7 +63,28 @@ var ajaxHandler = function () {
             url: '/bookings',
             method: 'POST',
             complete: complete,
+            error: error,
             data: data
+        }).send();
+    };
+
+    var getZone = function (query, complete, error) {
+        rAjax({
+            url: '/zone',
+            method: 'GET',
+            complete: complete,
+            error: error,
+            query: query
+        }).send();
+    };
+
+    var getProduct = function (query, complete, error) {
+        rAjax({
+            url: '/product',
+            method: 'GET',
+            complete: complete,
+            error: error,
+            query: query
         }).send();
     };
 
@@ -65,7 +92,9 @@ var ajaxHandler = function () {
     return {
         getNews: getNews,
         getBookings: getBookings,
-        addBookings: addBookings
+        addBookings: addBookings,
+        queryZone: getZone,
+        queryProduct: getProduct
 
     }
 };

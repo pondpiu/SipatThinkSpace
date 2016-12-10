@@ -33,14 +33,25 @@
                     duration: 1000000
                 }
                 ,function (res) {
-                    console.log('Bookings');
-                    console.log(res[0]);
+                    console.log('POST Bookings');
+                    console.log(res);
             });
 
             ajh.getBookings(function (res) {
-                console.log('Bookings');
+                console.log('GET Bookings');
                 console.log(res);
             });
+
+            ajh.queryZone('A', function (res) {
+                console.log('Zone');
+                console.log(res);
+            })
+
+            ajh.queryProduct('be', function (res) {
+                console.log('Products');
+                console.log(res);
+            })
+
         };
 
 
