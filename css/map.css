@@ -1,0 +1,109 @@
+* html {
+  font-family: "AvenirNext";
+}
+
+.b-g {
+  height: 70px;
+  background-color: #ffffff;
+  box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.5);
+}
+
+ul.topnav {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+}
+
+ul.topnav li {
+  float: right;
+}
+
+ul.topnav li:first-child {
+  width: 70px;
+  background-color: #97bb22;
+}
+
+ul.topnav li:first-child a:hover {
+  background-color: #97bb22;
+}
+
+ul.topnav li a {
+  display: inline-block;
+  color: #4a4a4a;
+  text-align: center;
+  padding: 18px 22px;
+  text-decoration: none;
+  font-size: 24px;
+}
+
+ul.topnav li a:hover {
+  background-color: #4a4a4a;
+  color: #ffffff;
+}
+
+.mag {
+  width: 25px;
+  height: 25px;
+  background-color: #97bb22;
+}
+
+.background {
+  background-color: #dddddd;
+  width: 100%;
+}
+
+.content-area-bg {
+	width: 70%;
+	background-color: #ffffff;
+	box-shadow: 0 5px 5px 0 rgba(0, 0, 0, 0.36);
+}
+
+.directory-header {
+  font-size: 36px;
+  color: #4a4a4a;
+  text-align: left;
+  margin-left: 50px;
+  margin-top: 30px;
+}
+
+.thinkspace-directory {
+  width: 90%;
+}
+
+.square {
+  width: 180px;
+  height: 180px;
+  background-color: #ffffff;
+	border: solid 1px #979797;
+}
+
+.directory-floor {
+  font-size: 30px;
+  padding-left: 15px;
+  padding-top: 13px;
+}
+
+.directory-name {
+  font-size: 24px;
+  padding-left: 15px;
+}
+
+.directory-block {
+  margin-top: 91.7px;
+  padding-bottom: 95px;
+}
+
+.row
+{
+    display: table;
+    width: 100%; /*Optional*/
+    table-layout: fixed; /*Optional*/
+    border-spacing: 55px 0px;/*Optional*/
+    border-collapse: separate;
+}
+.column
+{
+    display: table-cell;
+    background-color: white; /*Optional*/
+}
