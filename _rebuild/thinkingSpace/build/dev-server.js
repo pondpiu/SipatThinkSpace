@@ -6,6 +6,12 @@ var opn = require('opn')
 var proxyMiddleware = require('http-proxy-middleware')
 var webpackConfig = require('./webpack.dev.conf')
 
+var mongodb = require('mongodb');
+var MongoClient = mongodb.MongoClient;
+var bodyParser = require('body-parser');
+
+var url = 'mongodb://localhost:27017/infosys';
+
 // default port where dev server listens for incoming traffic
 var port = process.env.PORT || config.dev.port
 // Define HTTP proxies to your custom API backend
@@ -54,6 +60,185 @@ app.use(hotMiddleware)
 // serve pure static assets
 var staticPath = path.posix.join(config.dev.assetsPublicPath, config.dev.assetsSubDirectory)
 app.use(staticPath, express.static('./static'))
+
+
+//post schedule
+//post in to collection schedule
+app.post('/bookings', function (req, res) {
+	//something wrong insert body but still stuck in this if so I comment it out
+	// if (!req.body.name) {
+	// 	return res.send({
+	// 		'status' : '1',
+	// 		'message' : 'missing a parameter'
+	// 	});
+	// } else {
+		MongoClient.connect(url, function (err, db) {
+			if (err) {
+				console.log(err);
+				return res.send({
+					'status' : '1',
+					'message' : err
+				});
+			} else {
+				var collection = db.collection('schedule');
+				var schedule = {
+					name : '',
+					time : '',
+					duration : 0
+				};
+				schedule.name = req.body.name;
+				schedule.time = req.body.time;
+				schedule.duration = req.body.duration;
+
+				collection.insert(schedule, function (err, doc) {
+					if (err) {
+						console.log(err);
+						return res.send({
+							'status' : '1',
+							'message' : err
+						});
+					} else {
+						console.log('Inserted ' + req.body.name + '.');
+						return res.send({
+							'status' : '0',
+							'message' : 'schedule created'
+						});
+					}
+					db.close();
+				});
+			}
+		});
+	// }
+});
+//Get bookings
+	//from collection schedule
+	app.post('/bookings', function (req, res) {
+		MongoClient.connect(url, function (err, db) {
+			if (err) {
+				return res.send({
+					'status' : 1,
+					'message' : err
+				});
+			} else {
+				var collection = db.collection('schedule');
+				collection.find({}).toArray(function(error, documents) {
+	    if (err) throw error;
+
+	    res.send(documents);
+	});
+			}
+		});
+	});
+
+
+	//Get news
+	//from collection news
+	app.post('/news', function (req, res) {
+		MongoClient.connect(url, function (err, db) {
+			if (err) {
+				return res.send({
+					'status' : 1,
+					'message' : err
+				});
+			} else {
+				var collection = db.collection('news');
+				collection.find({}).toArray(function(error, documents) {
+	    			if (err) throw error;
+	    			res.send(documents);
+				});
+			}
+		});
+	});
+
+	//get Zone
+	//from collection zone
+app.post('/zone/:name?*', function (req, res) {
+	MongoClient.connect(url, function (err, db) {
+		if (err) {
+			return res.send({
+				'status' : 1,
+				'message' : err
+			});
+		} else {
+			var collection = db.collection('zone');
+
+            // if parameter name exist (given)
+			if (typeof req.params.name !== 'undefined') {
+                collection.findOne({
+                    'zoneName': req.params.name
+                }, function (err, doc) {
+                    if (err) {
+                        return res.send({
+                            'status': 1,
+                            'message': err
+                        });
+                    } else if (doc != null) {
+                        console.log('Found ' + req.params.name + '.');
+                        return res.send({
+                            'status': 0,
+                            'message': 'zone found',
+                            'user': doc,
+
+                        });
+                    } else {
+                        console.log('Can not find ' + req.params.name + '.');
+                        return res.send({
+                            'status': 2,
+                            'message': 'zone not found'
+                        });
+                    }
+                    db.close();
+                });
+            } else { // else we return all zones
+                console.log('returning all zones');
+                var collection = db.collection('zone');
+                collection.find({}).toArray(function(error, documents) {
+                    if (err) throw error;
+                    res.send(documents);
+                });
+
+            }
+		}
+	});
+});
+
+    //get product
+	//from collection product
+app.post('/product/:name', function (req, res) {
+	MongoClient.connect(url, function (err, db) {
+		if (err) {
+			return res.send({
+				'status' : 1,
+				'message' : err
+			});
+		} else {
+			var collection = db.collection('product');
+            collection.find({'title' : new RegExp(req.params.name, 'i')}).toArray(function (err, doc) {
+				if (err) {
+					return res.send({
+						'status' : 1,
+						'message' : err
+					});
+				} else if (doc != null) {
+					console.log('Found ' + req.params.name + '.');
+					return res.send({
+						'status' : 0,
+						'message' : 'product found',
+						'user' : doc,
+
+					});
+				} else {
+					console.log('Can not find ' + req.params.name + '.');
+					return res.send({
+						'status' : 2,
+						'message' : 'product not found'
+					});
+				}
+				db.close();
+			});
+		}
+	});
+});
 
 module.exports = app.listen(port, function (err) {
   if (err) {
