@@ -4,20 +4,24 @@ import Vue from 'vue'
 import App from './App'
 
 import VueRouter from 'vue-router'
+import VueResource from 'vue-resource'
 
 import Home from './components/Home';
 import Directory from './components/Directory';
 import About from './components/About';
+import Search from './components/Search';
 
 // import some global styles
 import './styles/style.scss'
 
 Vue.use(VueRouter)
+Vue.use(VueResource)
 
 const routes = [
   { path: '/home', alias: '/', component: Home },
   { path: '/directory', component: Directory },
-  { path: '/about', component: About }
+  { path: '/about', component: About },
+  { path: '/search', component: Search }
 ]
 
 const router = new VueRouter({

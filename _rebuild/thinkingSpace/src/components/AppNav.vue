@@ -5,7 +5,7 @@
       <li><a><img src="../assets/img/magnifier.png" class="mag" /></a></li>
 
         <li><router-link
-        to="home"
+        to="search"
         class="nav-item nav-link"
         active-class="active"
         exact
