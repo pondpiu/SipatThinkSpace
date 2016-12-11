@@ -1,0 +1,65 @@
+* html {
+  font-family: "AvenirNext";
+}
+
+.background {
+  background-color: #dddddd;
+  width: 100%;
+}
+
+.content-area-bg {
+	width: 70%;
+	background-color: #ffffff;
+	box-shadow: 0 5px 5px 0 rgba(0, 0, 0, 0.36);
+}
+
+.search-result-title {
+  color: #4a4a4a;
+  text-align: left;
+  padding-left: 50px;
+  padding-top: 30px;
+  font-size: 36px;
+  padding-bottom: 50px;
+}
+
+.search-result-row {
+  height: 140px;
+  width: 90%;
+  margin-bottom: 25px;
+  position: relative;
+}
+
+.search-result-img {
+  width: 140px;
+  height: 140px;
+  float: left;
+}
+
+.search-result-row-title {
+  font-size: 24px;
+  padding-left: 32px;
+  color: #4a4a4a;
+}
+
+.search-result-row-description {
+  font-size: 14px;
+  color: #4a4a4a;
+  padding-left: 32px;
+  padding-top: 7px;
+}
+
+.search-result-price {
+  font-size: 30px;
+  color: #8c9b09;
+  position: absolute;
+  bottom: -10px;
+  right: 5px;
+}
+
+.search-result-row-text {
+  overflow: hidden;
+}
+
+.random-space {
+  height: 115px;
+}
