@@ -79,6 +79,7 @@ ul.topnav li a:hover {
   color: #4a4a4a;
   text-align: left;
   font-size: 18px;
+  font-weight: normal;
 }
 
 .about-div {
@@ -112,7 +113,7 @@ ul.topnav li a:hover {
 
 .about-card-description {
   font-size: 14px;
-
+  font-weight: normal;
 }
 
 .row {

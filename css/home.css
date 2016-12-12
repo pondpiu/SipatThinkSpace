@@ -89,6 +89,7 @@ ul.topnav li a:hover {
   padding-left: 23px;
   padding-right: 23px;
   font-size: 18px;
+  font-weight: normal;
 }
 
 .promote-card-explore {
@@ -143,6 +144,7 @@ ul.topnav li a:hover {
 
 .blur-card-description {
   font-size: 18px;
+  font-weight: normal;
   padding-top: 10px;
   padding-left: 58px;
   padding-right: 58px;

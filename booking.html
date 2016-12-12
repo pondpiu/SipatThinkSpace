@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Booking for Volskaya Industries</title>
+
+    <!-- Bootstrap -->
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/booking.css">
+
+  </head>
+  <body>
+    <!-- Navigation bar -->
+    <div class="b-g">
+      <ul class="topnav" id="topnav">
+        <li><a href="#"><img src="img/magnifier.png" class="mag" /></a></li>
+        <li><a href="#">Reserve</a></li>
+        <li><a href="#">About</a></li>
+        <li><a href="#">Directory</a></li>
+        <li><a href="#">Home</a></li>
+      </ul>
+    </div>
+
+    <div class="background">
+      <div class="content-area-bg center-block">
+        <label class="booking-title">Room Schedule: </label>
+        <!--<div class="booking-header center-block">
+          <div class="random-space">
+          </div>
+          <div class="booking-from">
+            <label class="booking-header-text" id="from">From</label>
+          </div>
+          <div class="booking-until">
+            <label class="booking-header-text" id="until">Until</label>
+          </div>
+        </div>-->
+        <table class="booking-table">
+          <tr height="49px" class="booking-header-row">
+            <th class="name"></th>
+            <th class="booking-header-text from">From</th>
+            <th class="booking-header-text until">Until</th>
+          </tr>
+          <tr height="49px" class="booking-row-odd">
+            <th class="name table-text">Nebby and its bag</th>
+            <th class="from table-text">15:30</th>
+            <th class="until table-text">16:30</th>
+          </tr>
+          <tr height="49px" class="booking-row-even">
+            <th class="name table-text">Some random dude</th>
+            <th class="from table-text">17:00</th>
+            <th class="until table-text">19:00</th>
+          </tr>
+          <tr height="49px" class="booking-row-odd">
+            <th class="name table-text">-</th>
+            <th class="from table-text">19:00</th>
+            <th class="until table-text">25:00</th>
+          </tr>
+        </table>
+
+        <label class="booking-title">New Booking: </label>
+        <br>
+
+        <div class="input-form">
+          <div class="name-form">
+            <div class="form-group">
+              <label class="input-description">name</label>
+              <input type="text" class="input-input form-control form-border" id="" placeholder="John Appleseed">
+            </div>
+          </div>
+          <div class="phone-form">
+            <div class="form-group">
+              <label class="input-description">phone</label>
+              <input type="text" class="input-input form-control form-border" id="" placeholder="080-000-0000">
+            </div>
+          </div>
+        </div>
+
+        <div class="from-to-form form-group">
+          <div class="">
+            <label class="time-form-text">from</label>
+            <div class="input-group time-input">
+              <input type="text" name="time from" value="00:00" class="form-control form-border booking-time">
+              <span class="input-group-addon booking-addon form-border"><img src="img/clock-icon.png"/></span>
+            </div>
+          </div>
+
+          <div class="">
+            <label class="time-form-text">to</label>
+            <div class="input-group time-input">
+              <input type="text" name="time to" value="00:00" class="form-control form-border booking-time">
+              <span class="input-group-addon booking-addon form-border"><img src="img/clock-icon.png"/></span>
+            </div>
+          </div>
+        </div>
+
+        <div class="">
+          <button type="button" name="button" class="btn the-only-button">submit</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- JS -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  </body>
+</html>
