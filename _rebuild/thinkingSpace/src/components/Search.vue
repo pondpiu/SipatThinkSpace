@@ -1,7 +1,9 @@
 <!-- src/components/Search.vue -->
 
 <template>
-  <div ckass="Typeahead">
+  <div>
+    <searchItem></searchItem>
+  <div class="Typeahead" v-if="hello">
     <!-- optional indicators -->
     <i class="fa fa-spinner fa-spin" v-if="loading"></i>
     <template v-else>
@@ -30,10 +32,12 @@
       </li>
     </ul>
   </div>
+</div>
 </template>
 
 <script>
 import VueTypeahead from 'vue-typeahead'
+import searchItem from '../components/searchItem'
 
 export default {
   extends: VueTypeahead, // vue@1.0.22+
@@ -83,6 +87,10 @@ export default {
       // data = ...
     //  return data
     //}
+  },
+
+  components: {
+    searchItem
   }
 }
 </script>
