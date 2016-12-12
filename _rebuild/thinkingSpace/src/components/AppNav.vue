@@ -2,7 +2,7 @@
 <template>
   <div class="b-g">
     <ul class="topnav" id="topnav">
-      <li><a><img src="../assets/img/magnifier.png" class="mag" /></a></li>
+    <li><a><img src="../assets/img/magnifier.png" class="mag" /></a></li>
 
         <li><router-link
         to="search"
@@ -74,7 +74,8 @@ ul.topnav li:first-child {
   background-color: #97bb22;
 }
 
-ul.topnav li:first-child a:hover {
+ul.topnav li:first-child:hover {
+  width: 200px;
   background-color: #97bb22;
 }
 

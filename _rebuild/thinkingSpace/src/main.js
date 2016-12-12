@@ -32,5 +32,8 @@ const router = new VueRouter({
 new Vue({
   el: '#app',
   router,
+  data:{
+    searching : false
+  },
   render: h => h(App)
 })
