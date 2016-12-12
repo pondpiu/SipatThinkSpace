@@ -48,7 +48,7 @@ Object.keys(proxyTable).forEach(function (context) {
 })
 
 // handle fallback for HTML5 history API
-app.use(require('connect-history-api-fallback')())
+// app.use(require('connect-history-api-fallback')())
 
 // serve webpack bundle output
 app.use(devMiddleware)
@@ -112,7 +112,7 @@ app.post('/bookings', function (req, res) {
 });
 //Get bookings
 	//from collection schedule
-	app.post('/bookings', function (req, res) {
+	app.get('/bookings', function (req, res) {
 		MongoClient.connect(url, function (err, db) {
 			if (err) {
 				return res.send({
@@ -133,7 +133,7 @@ app.post('/bookings', function (req, res) {
 
 	//Get news
 	//from collection news
-	app.post('/news', function (req, res) {
+	app.get('/news', function (req, res) {
 		MongoClient.connect(url, function (err, db) {
 			if (err) {
 				return res.send({
@@ -152,7 +152,7 @@ app.post('/bookings', function (req, res) {
 
 	//get Zone
 	//from collection zone
-app.post('/zone/:name?*', function (req, res) {
+app.get('/zone/:name?*', function (req, res) {
 	MongoClient.connect(url, function (err, db) {
 		if (err) {
 			return res.send({
@@ -204,7 +204,7 @@ app.post('/zone/:name?*', function (req, res) {
 
     //get product
 	//from collection product
-app.post('/product/:name', function (req, res) {
+app.get('/product/:name', function (req, res) {
 	MongoClient.connect(url, function (err, db) {
 		if (err) {
 			return res.send({
