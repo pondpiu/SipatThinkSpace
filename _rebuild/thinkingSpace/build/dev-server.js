@@ -95,12 +95,14 @@ app.post('/bookings', function (req, res) {
 				var collection = db.collection('schedule');
 				var schedule = {
 					name : '',
-					time : '',
-					duration : 0
+					from : '',
+					until : '',
+          phone : ''
 				};
 				schedule.name = req.body.name;
-				schedule.time = req.body.time;
-				schedule.duration = req.body.duration;
+				schedule.from = req.body.from;
+				schedule.until = req.body.until;
+        schedule.phone = req.body.phone;
 
 				collection.insert(schedule, function (err, doc) {
 					if (err) {

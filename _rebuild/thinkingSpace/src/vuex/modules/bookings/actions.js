@@ -8,7 +8,9 @@ import {
 } from './mutation-types';
 
 export function createBooking ({ commit }, booking) {
-  ajaxHandler.addBookings(booking);
+  ajaxHandler.addBookings(booking,function(){
+    
+  });
   commit(CREATE_BOOKING, booking);
 }
 

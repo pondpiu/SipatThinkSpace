@@ -16,7 +16,9 @@ var rAjax = function (req) {
     xhr.responseType = 'json';
 
     xhr.onload = function (e) {
+      if (typeof req.complete !== 'undefined') {
         req.complete(e.target.response);
+      }
     };
 
     var bustCache = '?' + new Date().getTime();

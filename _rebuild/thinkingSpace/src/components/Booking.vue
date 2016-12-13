@@ -19,10 +19,10 @@
     <th class="booking-header-text from">From</th>
     <th class="booking-header-text until">Until</th>
   </tr>
-  <tr v-for="bookings in bookings" height="49px" class="booking-row-odd">
-    <th class="name table-text">{{bookings.title}}</th>
-    <th class="from table-text">{{bookings.from}}</th>
-    <th class="until table-text">{{bookings.until}}</th>
+  <tr v-for="booking in bookings" height="49px" class="booking-row-odd">
+    <th class="name table-text">{{booking.name}}</th>
+    <th class="from table-text">{{booking.from}}</th>
+    <th class="until table-text">{{booking.until}}</th>
   </tr>
 </table>
 
@@ -33,13 +33,13 @@
   <div class="name-form">
     <div class="form-group">
       <label class="input-description">name</label>
-      <input v-model="input.iName" type="text" class="input-input form-control form-border" id="" placeholder="John Appleseed">
+      <input v-model="input.name" type="text" class="input-input form-control form-border" id="" placeholder="John Appleseed">
     </div>
   </div>
   <div class="phone-form">
     <div class="form-group">
       <label class="input-description">phone</label>
-      <input v-model="input.iPhone" type="text" class="input-input form-control form-border" id="" placeholder="080-000-0000">
+      <input v-model="input.phone" type="text" class="input-input form-control form-border" id="" placeholder="080-000-0000">
     </div>
   </div>
 </div>
@@ -48,7 +48,7 @@
   <div class="">
     <label class="time-form-text">from</label>
     <div class="input-group time-input">
-      <input v-model="input.iFrom" type="time" name="time from" class="form-control form-border booking-time">
+      <input v-model="input.from" type="time" name="time from" class="form-control form-border booking-time">
       <span class="input-group-addon booking-addon form-border"><img src="../assets/img/clock-icon.png"/></span>
     </div>
   </div>
@@ -56,7 +56,7 @@
   <div class="">
     <label class="time-form-text">to</label>
     <div class="input-group time-input">
-      <input v-model="input.iTo" type="time" name="time to" class="form-control form-border booking-time">
+      <input v-model="input.until" type="time" name="time to" class="form-control form-border booking-time">
       <span class="input-group-addon booking-addon form-border"><img src="../assets/img/clock-icon.png"/></span>
     </div>
   </div>
@@ -80,10 +80,10 @@ export default {
   data(){
     return{
       input:{
-        iName : '',
-        iPhone : '',
-        iFrom : '',
-        iTo : ''
+        name : '',
+        phone : '',
+        from : '',
+        until : ''
       }
     }
   },

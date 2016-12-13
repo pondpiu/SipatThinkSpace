@@ -63,10 +63,7 @@ export default {
        this.searchProduct(text);
      },
      searching: function() {
-       alert(this.search);
-       console.log('entered');
        this.searchProduct(this.search);
-       console.log('routing');
         this.$router.push('/search');
 
      }
