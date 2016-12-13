@@ -14,7 +14,7 @@ import About from './components/About';
 import Search from './components/Search';
 import Booking from './components/Booking';
 
-import rAjaxHandler from './helper_scripts/rajax'; 
+import rAjaxHandler from './helper_scripts/rajax';
 // import some global styles
 import './styles/style.scss'
 
@@ -38,5 +38,6 @@ new Vue({
   el: '#app',
   store,
   router,
+  rAjaxHandler,
   render: h => h(App)
 })
