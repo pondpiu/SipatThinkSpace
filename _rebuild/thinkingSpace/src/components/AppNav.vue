@@ -86,8 +86,8 @@ ul.topnav li:first-child:hover .search-input {
   border: 0 none;
   background: transparent;
   box-shadow: none;
+  width: 85%;
   font-size: 24px;
-  transition-delay: 0.4s;
 }
 
 ul.topnav li:first-child a:hover {
@@ -116,9 +116,10 @@ ul.topnav li a:hover {
 }
 
 .search-input {
-  width: 85%;
+  width: 0%;
   display: none;
-  transition: all 0s;
+  color: white;
+  transition: all 0.4s;
 }
 
 </style>
