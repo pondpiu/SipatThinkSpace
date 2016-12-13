@@ -173,10 +173,10 @@ app.post('/bookings', function (req, res) {
 				});
 			} else {
         var beacon = {
-					area : Math.floor((Math.random() * 6) + 1);,
+					area : Math.floor((Math.random() * 6) + 1),
 					lat : 13.8040594,
 					long : 100.6141653,
-          beaconNumber: Math.floor((Math.random() * 80000) + 10000);
+          beaconNumber: Math.floor((Math.random() * 80000) + 10000)
 				};
         res.send(beacon);
 			}
