@@ -10,7 +10,18 @@ import {
 
 // initial state
 const initialState = {
-  all: []
+  all: [
+    {
+      title:'hello',
+      from:'11:11',
+      to:'12:22'
+    },
+    {
+      title:'you\'re welcome',
+      from:'12:23',
+      to:'14:22'
+    }
+  ]
 }
 
 // mutations

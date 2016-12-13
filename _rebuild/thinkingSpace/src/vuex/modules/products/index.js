@@ -27,15 +27,14 @@ const initialState = {
 const mutations = {
 
   [SEARCH_PRODUCT] (state,searchText){
-    console.log(ajaxHandler);
     ajaxHandler.getProduct(searchText, function (res) {
       console.log(res);
 
       // FIXME: Pond - error here
       // clear array
-      state.all.length = 0;
+      // state.all.length = 0;
       // push new data
-      state.all.push(res.user);
+      state.all = res.user;
     })
   }
 

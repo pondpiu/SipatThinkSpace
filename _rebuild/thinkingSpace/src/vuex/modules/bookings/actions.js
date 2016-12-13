@@ -13,7 +13,7 @@ export function createBooking ({ commit }, booking) {
 }
 
 export function fetchBooking ({commit}){
-  ajaxHandler.getBookings(function(res){
+  return ajaxHandler.getBookings(function(res){
     commit(FETCH_BOOKINGS,res)
   })
 }

@@ -2,10 +2,10 @@
 <template>
   <div>
     <div v-for="product in products" class="search-result-row center-block">
-      <img src="../assets/img/1.jpg" class="search-result-img" />
+      <img src="product.imageUrl" class="search-result-img" />
       <div class="search-result-row-text">
         <label class="search-result-row-title">{{product.title}}</label><br>
-        <label class="search-result-row-description">{{product.description}}</label>
+        <label class="search-result-row-description">{{product.content}}</label>
         <label class="search-result-price">฿ {{product.price}}</label>
       </div>
     </div>
