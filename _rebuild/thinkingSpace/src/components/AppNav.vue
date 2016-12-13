@@ -3,7 +3,7 @@
   <div class="b-g">
     <ul class="topnav" id="topnav">
     <li><a><img src="../assets/img/magnifier.png" class="mag" /></a>
-      <input type="text" name="name" class="search-input" placeholder="Search here"></li>
+      <input type="text" class="search-input" v-on:change="search" v-model="lol" placeholder="Search here"></li>
 
         <li><router-link
         to="search"
@@ -48,7 +48,18 @@
 </template>
 
 <script>
-export default {}
+export default {
+  data: {
+    return: {
+      lol: ''
+    }
+  },
+  methods: {
+    search: function() {
+      alert(this.lol);
+    }
+  }
+}
 </script>
 
 <style>
