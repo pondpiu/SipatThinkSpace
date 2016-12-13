@@ -134,6 +134,7 @@ export default {}
   margin-top: 15px;
   width: 70%;
   position: relative;
+  overflow: hidden;
 }
 
 .thinkspace-connect {
