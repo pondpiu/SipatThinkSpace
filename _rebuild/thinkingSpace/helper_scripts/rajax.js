@@ -38,63 +38,62 @@ var rAjax = function (req) {
 
 };
 
-var rAjaxHandler = function () {
+export rAjaxHandler({
+  var getNews = function (complete, error) {
+      rAjax({
+          url: '/news',
+          method: 'GET',
+          complete: complete,
+          error: error
+      }).send();
+  };
 
-    var getNews = function (complete, error) {
-        rAjax({
-            url: '/news',
-            method: 'GET',
-            complete: complete,
-            error: error
-        }).send();
-    };
+  var getBookings = function (complete, error) {
+      rAjax({
+          url: '/bookings',
+          method: 'GET',
+          complete: complete,
+          error: error
+      }).send();
+  };
 
-    var getBookings = function (complete, error) {
-        rAjax({
-            url: '/bookings',
-            method: 'GET',
-            complete: complete,
-            error: error
-        }).send();
-    };
+  var addBookings = function (data, complete, error) {
+      rAjax({
+          url: '/bookings',
+          method: 'POST',
+          complete: complete,
+          error: error,
+          data: data
+      }).send();
+  };
 
-    var addBookings = function (data, complete, error) {
-        rAjax({
-            url: '/bookings',
-            method: 'POST',
-            complete: complete,
-            error: error,
-            data: data
-        }).send();
-    };
+  var getZone = function (query, complete, error) {
+      rAjax({
+          url: '/zone',
+          method: 'GET',
+          complete: complete,
+          error: error,
+          query: query
+      }).send();
+  };
 
-    var getZone = function (query, complete, error) {
-        rAjax({
-            url: '/zone',
-            method: 'GET',
-            complete: complete,
-            error: error,
-            query: query
-        }).send();
-    };
+  var getProduct = function (query, complete, error) {
+      rAjax({
+          url: '/product',
+          method: 'GET',
+          complete: complete,
+          error: error,
+          query: query
+      }).send();
+  };
 
-    var getProduct = function (query, complete, error) {
-        rAjax({
-            url: '/product',
-            method: 'GET',
-            complete: complete,
-            error: error,
-            query: query
-        }).send();
-    };
+  // expose functions
+  return {
+      getNews: getNews,
+      getBookings: getBookings,
+      addBookings: addBookings,
+      queryZone: getZone,
+      queryProduct: getProduct
 
-    // expose functions
-    return {
-        getNews: getNews,
-        getBookings: getBookings,
-        addBookings: addBookings,
-        queryZone: getZone,
-        queryProduct: getProduct
-
-    }
-};
+  }
+});

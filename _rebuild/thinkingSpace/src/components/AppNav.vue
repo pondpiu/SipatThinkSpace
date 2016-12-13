@@ -63,11 +63,15 @@ export default {
        this.searchProduct(text);
      },
      search: function() {
-       alert(this.lol);
+       alert('hello');
+       console.log('entered');
+       this.searchProduct(this.lol);
+       console.log('routing');
+        this.$router.push('/search');
+
      }
    }
 
->>>>>>> origin/master
 }
 </script>
 

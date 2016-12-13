@@ -1,6 +1,7 @@
 // src/vuex/modules/products/index.js
 import * as actions from './actions';
 import * as getters from './getters';
+// import rAjaxHandler as ajh from '../../../../helper_scripts/rajax';
 
 import {
   SEARCH_PRODUCT
@@ -26,9 +27,11 @@ const initialState = {
 const mutations = {
 
   [SEARCH_PRODUCT] (state,searchText){
+    console.log('start searching');
    //State.all.push('productObject');
-    ajaxHandler.getProducts(searchText, function (res) {
-      state.all = res
+    rAjaxHandler.getProduct(searchText, function (res) {
+      console.log('serach complete');
+      state.all = res;
     })
   }
 

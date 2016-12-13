@@ -6,5 +6,5 @@ import {
 } from './mutation-types';
 
 export function searchProduct ({ commit }, productId) {
-  commit(SEARCH_PRODUCT, productId)
+  commit(SEARCH_PRODUCT, productId);
 }
