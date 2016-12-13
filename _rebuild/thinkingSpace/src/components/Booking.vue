@@ -48,7 +48,7 @@
   <div class="">
     <label class="time-form-text">from</label>
     <div class="input-group time-input">
-      <input v-model="input.iFrom" type="time" name="time from" value="00:00" class="form-control form-border booking-time">
+      <input v-model="input.iFrom" type="time" name="time from" class="form-control form-border booking-time">
       <span class="input-group-addon booking-addon form-border"><img src="../assets/img/clock-icon.png"/></span>
     </div>
   </div>
@@ -56,7 +56,7 @@
   <div class="">
     <label class="time-form-text">to</label>
     <div class="input-group time-input">
-      <input v-model="input.iTo" type="time" name="time to" value="00:00" class="form-control form-border booking-time">
+      <input v-model="input.iTo" type="time" name="time to" class="form-control form-border booking-time">
       <span class="input-group-addon booking-addon form-border"><img src="../assets/img/clock-icon.png"/></span>
     </div>
   </div>
@@ -74,10 +74,11 @@
 
 <script>
 import { mapGetters } from 'vuex'
+import ajaxHandler from '../../helper_scripts/rajax.js'
 
 export default {
   data(){
-    return:{
+    return{
       input:{
         iName : '',
         iPhone : '',
@@ -91,7 +92,8 @@ export default {
   }),
   methods : {
     book: function(){
-      console.log(input);
+      ajaxHandler.addBookings(this.input);
+      console.log(this.input);
     }
   }
 }

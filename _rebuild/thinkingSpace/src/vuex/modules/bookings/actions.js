@@ -1,10 +1,19 @@
 // src/vuex/modules/bookings/actions.js
 import uuid from 'uuid';
+import ajaxHandler from '../../../../helper_scripts/rajax.js';
 
 import {
+  FETCH_BOOKINGS,
   CREATE_BOOKINGS
 } from './mutation-types';
 
 export function createBooking ({ commit }, booking) {
-  commit(CREATE_BOOKING, booking)
+  ajaxHandler.addBookings(booking);
+  commit(CREATE_BOOKING, booking);
+}
+
+export function fetchBooking ({commit}){
+  ajaxHandler.getBookings(function(res){
+    commit(FETCH_BOOKINGS,res)
+  })
 }
