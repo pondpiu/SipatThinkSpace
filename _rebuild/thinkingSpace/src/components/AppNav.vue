@@ -2,7 +2,8 @@
 <template>
   <div class="b-g">
     <ul class="topnav" id="topnav">
-    <li><a><img src="../assets/img/magnifier.png" class="mag" /></a></li>
+    <li><a><img src="../assets/img/magnifier.png" class="mag" /></a>
+      <input type="text" name="name" class="search-input" placeholder="Search here"></li>
 
         <li><router-link
         to="search"
@@ -70,12 +71,26 @@ ul.topnav li {
 }
 
 ul.topnav li:first-child {
-  width: 70px;
+  width: 4%;
   background-color: #97bb22;
+  transition: all 0.4s;
 }
 
 ul.topnav li:first-child:hover {
-  width: 200px;
+  width: 40%;
+  background-color: #97bb22;
+}
+
+ul.topnav li:first-child:hover .search-input {
+  display: inline-block;
+  border: 0 none;
+  background: transparent;
+  box-shadow: none;
+  font-size: 24px;
+  transition-delay: 0.4s;
+}
+
+ul.topnav li:first-child a:hover {
   background-color: #97bb22;
 }
 
@@ -97,6 +112,13 @@ ul.topnav li a:hover {
   width: 25px;
   height: 25px;
   background-color: #97bb22;
+  display: inline-block;
+}
+
+.search-input {
+  width: 85%;
+  display: none;
+  transition: all 0s;
 }
 
 </style>
