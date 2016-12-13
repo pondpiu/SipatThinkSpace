@@ -5,7 +5,6 @@
 
  // Todo - add error handler
 var rAjax = function (req) {
-    'use strict';
 
     // default to async
     if (typeof req.async === 'undefined') {
@@ -38,7 +37,8 @@ var rAjax = function (req) {
 
 };
 
-export rAjaxHandler({
+var rAjaxHandler = function () {
+
   var getNews = function (complete, error) {
       rAjax({
           url: '/news',
@@ -92,8 +92,10 @@ export rAjaxHandler({
       getNews: getNews,
       getBookings: getBookings,
       addBookings: addBookings,
-      queryZone: getZone,
-      queryProduct: getProduct
+      getZone: getZone,
+      getProduct: getProduct
 
   }
-});
+}();
+
+export default rAjaxHandler;

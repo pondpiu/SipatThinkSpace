@@ -38,6 +38,7 @@
 <script>
 import VueTypeahead from 'vue-typeahead'
 import searchItem from '../components/searchItem'
+import ajaxHandler from  '../../helper_scripts/rajax';
 
 export default {
   extends: VueTypeahead, // vue@1.0.22+
@@ -93,6 +94,7 @@ export default {
     searchItem
   }
 }
+
 </script>
 
 <style scoped>

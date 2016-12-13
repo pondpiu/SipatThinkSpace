@@ -1,7 +1,7 @@
 // src/vuex/modules/products/index.js
 import * as actions from './actions';
 import * as getters from './getters';
-// import rAjaxHandler as ajh from '../../../../helper_scripts/rajax';
+import ajaxHandler from  '../../../../helper_scripts/rajax';
 
 import {
   SEARCH_PRODUCT
@@ -27,11 +27,15 @@ const initialState = {
 const mutations = {
 
   [SEARCH_PRODUCT] (state,searchText){
-    console.log('start searching');
-   //State.all.push('productObject');
-    rAjaxHandler.getProduct(searchText, function (res) {
-      console.log('serach complete');
-      state.all = res;
+    console.log(ajaxHandler);
+    ajaxHandler.getProduct(searchText, function (res) {
+      console.log(res);
+
+      // FIXME: Pond - error here
+      // clear array
+      state.all.length = 0;
+      // push new data
+      state.all.push(res.user);
     })
   }
 
