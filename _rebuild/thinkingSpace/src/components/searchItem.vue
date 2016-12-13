@@ -1,6 +1,6 @@
 <!-- src/components/searchItem.vue -->
 <template>
-  <div>
+  <div class="content-box">
     <div v-for="product in products" class="search-result-row center-block">
       <img v-bind:src="product.imgUrl" class="search-result-img" />
       <div class="search-result-row-text">
@@ -25,6 +25,10 @@ export default {
 </script>
 
 <style>
+
+  .content-box {
+    margin-top: 2em;
+  }
 
 .search-result-title {
   color: #4a4a4a;
