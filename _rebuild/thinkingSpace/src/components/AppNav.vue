@@ -5,12 +5,12 @@
     <li><a><img src="../assets/img/magnifier.png" class="mag" /></a></li>
 
         <li><router-link
-        to="search"
+        to="booking"
         class="nav-item nav-link"
         active-class="active"
         exact
         >
-          Reserve
+          Booking
         </router-link></li>
 
         <li><router-link

@@ -12,6 +12,7 @@ import Home from './components/Home';
 import Directory from './components/Directory';
 import About from './components/About';
 import Search from './components/Search';
+import Booking from './components/Booking';
 
 // import some global styles
 import './styles/style.scss'
@@ -23,7 +24,8 @@ const routes = [
   { path: '/home', alias: '/', component: Home },
   { path: '/directory', component: Directory },
   { path: '/about', component: About },
-  { path: '/search', component: Search }
+  { path: '/search', component: Search },
+  { path: '/booking', component: Booking }
 ]
 
 const router = new VueRouter({
