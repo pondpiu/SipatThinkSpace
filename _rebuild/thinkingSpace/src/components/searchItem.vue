@@ -1,12 +1,12 @@
 <!-- src/components/searchItem.vue -->
 <template>
   <div>
-    <div v-for="result in results" class="search-result-row center-block">
+    <div v-for="product in products" class="search-result-row center-block">
       <img src="../assets/img/1.jpg" class="search-result-img" />
       <div class="search-result-row-text">
-        <label class="search-result-row-title">{{result.title}}</label><br>
-        <label class="search-result-row-description">{{result.description}}</label>
-        <label class="search-result-price">฿ {{result.price}}</label>
+        <label class="search-result-row-title">{{product.title}}</label><br>
+        <label class="search-result-row-description">{{product.description}}</label>
+        <label class="search-result-price">฿ {{product.price}}</label>
       </div>
     </div>
   </div>
@@ -15,25 +15,12 @@
 </template>
 
 <script>
+import { mapGetters } from 'vuex'
 
 export default {
-  data(){
-    return{
-      results : [
-        {
-          title : "Solgaleo",
-          description : "Aenean lacinia bibendum nulla sed consectetur. Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Praesent commodo cursus magna, vel scelerisque nisl consectetur et.",
-          price : "31415.92"
-        },
-        {
-          title : "Andre",
-          description : "Pikachu ja nai, andre dayo",
-          price : "33333.33"
-        }
-      ]
-
-    }
-  }
+  computed: mapGetters({
+    products: 'getProducts'
+  })
 }
 </script>
 

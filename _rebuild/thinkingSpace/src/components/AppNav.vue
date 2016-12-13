@@ -48,17 +48,26 @@
 </template>
 
 <script>
+import { mapGetters, mapActions } from 'vuex'
 export default {
   data: {
     return: {
       lol: ''
     }
   },
-  methods: {
-    search: function() {
-      alert(this.lol);
-    }
-  }
+   methods: {
+      ...mapActions([
+       'searchProduct'
+     ]),
+     onTextChange(text){
+       this.searchProduct(text);
+     },
+     search: function() {
+       alert(this.lol);
+     }
+   }
+
+>>>>>>> origin/master
 }
 </script>
 
