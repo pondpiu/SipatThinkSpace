@@ -47,8 +47,18 @@
 </template>
 
 <script>
-
+import { mapGetters, mapActions } from 'vuex'
 export default {
+
+   methods: {
+      ...mapActions([
+       'searchProduct'
+     ]),
+     onTextChange(text){
+       this.searchProduct(text);
+     }
+   }
+
 }
 </script>
 

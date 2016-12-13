@@ -1,5 +1,10 @@
 // src/vuex/modules/products/index.js
+import * as actions from './actions';
 import * as getters from './getters';
+
+import {
+  SEARCH_PRODUCT
+} from './mutation-types'
 
 // initial state
 const initialState = {
@@ -19,10 +24,16 @@ const initialState = {
 
 // mutations
 const mutations = {
+
+  [SEARCH_PRODUCT] (state,searchText){
+   //State.all.push('productObject');
+  }
+
 }
 
 export default {
   state: { ...initialState },
+  actions,
   getters,
   mutations
 }
