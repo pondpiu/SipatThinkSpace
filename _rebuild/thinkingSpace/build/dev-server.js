@@ -19,6 +19,8 @@ var port = process.env.PORT || config.dev.port;
 var proxyTable = config.dev.proxyTable;
 
 var app = express();
+
+
 var compiler = webpack(webpackConfig);
 
 var devMiddleware = require('webpack-dev-middleware')(compiler, {
@@ -53,6 +55,8 @@ Object.keys(proxyTable).forEach(function (context) {
 // serve webpack bundle output
 app.use(devMiddleware);
 
+app.use(bodyParser.json);
+app.use(bodyParser.urlencoded({extended:true}));
 // enable hot-reload and state-preserving
 // compilation error display
 app.use(hotMiddleware);
