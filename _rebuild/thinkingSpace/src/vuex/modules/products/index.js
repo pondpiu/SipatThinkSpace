@@ -27,6 +27,9 @@ const mutations = {
 
   [SEARCH_PRODUCT] (state,searchText){
    //State.all.push('productObject');
+    ajaxHandler.getProducts(searchText, function (res) {
+      state.all = res
+    })
   }
 
 }
