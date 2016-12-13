@@ -2,10 +2,10 @@
 <template>
   <div>
     <div v-for="product in products" class="search-result-row center-block">
-      <img src="product.imageUrl" class="search-result-img" />
+      <img v-bind:src="product.imgUrl" class="search-result-img" />
       <div class="search-result-row-text">
         <label class="search-result-row-title">{{product.title}}</label><br>
-        <label class="search-result-row-description">{{product.content}}</label>
+        <label class="search-result-row-description">{{product.description}}</label>
         <label class="search-result-price">฿ {{product.price}}</label>
       </div>
     </div>
@@ -46,6 +46,7 @@ export default {
   width: 140px;
   height: 140px;
   float: left;
+  object-fit: cover;
 }
 
 .search-result-row-title {
