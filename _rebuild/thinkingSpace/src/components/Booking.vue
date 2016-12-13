@@ -73,7 +73,7 @@
 </template>
 
 <script>
-import { mapGetters } from 'vuex'
+import { mapGetters,mapActions } from 'vuex'
 import ajaxHandler from '../../helper_scripts/rajax.js'
 
 export default {
@@ -91,9 +91,12 @@ export default {
     bookings: 'getBookings'
   }),
   methods : {
+    ...mapActions([
+     'createBooking'
+   ]),
     book: function(){
-      ajaxHandler.addBookings(this.input);
-      console.log(this.input);
+      this.createBooking(this.input);
+      this.input = {name:'',phone:'',from:'',until:''}
     }
   }
 }

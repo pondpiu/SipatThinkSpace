@@ -29,9 +29,10 @@ const mutations = {
 
   [CREATE_BOOKING] (state,booking){
    state.all.push(booking);
+   console.log(state.all);
  },
   [FETCH_BOOKINGS] (state,bookings){
-    state.all = bookings
+    state.all = bookings;
     console.log(state.all);
   }
 
