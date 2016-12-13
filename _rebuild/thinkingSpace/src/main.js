@@ -38,6 +38,5 @@ new Vue({
   el: '#app',
   store,
   router,
-  rAjaxHandler,
   render: h => h(App)
 })
