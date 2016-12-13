@@ -164,6 +164,25 @@ app.post('/bookings', function (req, res) {
 		});
 	});
 
+  app.get('/ibeacon', function (req, res) {
+		MongoClient.connect(url, function (err, db) {
+			if (err) {
+				return res.send({
+					'status' : 1,
+					'message' : err
+				});
+			} else {
+        var beacon = {
+					area : Math.floor((Math.random() * 6) + 1);,
+					lat : 13.8040594,
+					long : 100.6141653,
+          beaconNumber: Math.floor((Math.random() * 80000) + 10000);
+				};
+        res.send(beacon);
+			}
+		});
+	});
+
 	//get Zone
 	//from collection zone
 app.get('/zone/:name?*', function (req, res) {
