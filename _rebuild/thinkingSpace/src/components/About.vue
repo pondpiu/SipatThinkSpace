@@ -41,7 +41,6 @@
       </script>
 
       <style>
-
       .background {
         background-color: #dddddd;
         width: 100%;
@@ -60,7 +59,6 @@
         padding-top: 30px;
         color: #4a4a4a;
       }
-
       .about-img {
         padding-top: 20px;
         width: 90%;
