@@ -3,7 +3,7 @@
   <div class="b-g">
     <ul class="topnav" id="topnav">
     <li><a><img src="../assets/img/magnifier.png" class="mag" /></a>
-      <input type="text" class="search-input" v-on:change="search" v-model="lol" placeholder="Search here"></li>
+      <input v-model="search" type="text" class="search-input" placeholder="Search here" v-on:change="searching" ></li>
 
         <li><router-link
         to="booking"
@@ -46,13 +46,13 @@
     </ul>
   </div>
 </template>
-
+<script src="./helper_scripts/rajax.js"></script>
 <script>
 import { mapGetters, mapActions } from 'vuex'
 export default {
-  data: {
-    return: {
-      lol: ''
+  data(){
+    return{
+      search:""
     }
   },
    methods: {
@@ -62,13 +62,18 @@ export default {
      onTextChange(text){
        this.searchProduct(text);
      },
-     search: function() {
-       alert('hello');
+     searching: function() {
+       alert(this.search);
        console.log('entered');
-       this.searchProduct(this.lol);
+       this.searchProduct(this.search);
        console.log('routing');
         this.$router.push('/search');
 
+     }
+   },
+   watch:{
+     search: function(val){
+     this.searchProduct(this.search);
      }
    }
 
